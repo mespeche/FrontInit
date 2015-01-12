@@ -1,0 +1,12 @@
+{
+  "name": "FrontInit",
+  "version": "1.0.0",
+  "authors": [
+    "Michaël Espeche <michael.espeche@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "fontawesome": "~4.2.0"
+  }
+}
