@@ -6,6 +6,7 @@ module.exports = function (grunt) {
         opts: {
             css: {
                 root: 'assets/css',
+                mainFile: '<%= opts.css.root %>/main.css',
                 minFile: '<%= opts.css.root %>/min.css'
             },
             js: {
@@ -54,11 +55,17 @@ module.exports = function (grunt) {
         less: {
             all: {
                 options: {
-                    paths: ['<%= opts.css.root %>'],
-                    cleancss: true
+                    paths: ['<%= opts.css.root %>']
                 },
                 files: {
-                    '<%= opts.css.minFile %>': '<%= opts.less.mainFile %>'
+                    '<%= opts.css.mainFile %>': '<%= opts.less.mainFile %>'
+                }
+            }
+        },
+        cssmin: {
+            target: {
+                files: {
+                    '<%= opts.css.minFile %>': '<%= opts.css.mainFile %>'
                 }
             }
         },
@@ -107,6 +114,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'copy']);
+    grunt.registerTask('default', ['copy', 'jshint', 'uglify', 'less', 'cssmin']);
 
 }
