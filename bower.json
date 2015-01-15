@@ -8,5 +8,10 @@
   "dependencies": {
     "bootstrap": "~3.3.1",
     "fontawesome": "~4.2.0"
+  },
+  "devDependencies": {
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2",
+    "jquery": "~2.1.3"
   }
 }

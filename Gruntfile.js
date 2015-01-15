@@ -11,7 +11,7 @@ module.exports = function (grunt) {
             },
             js: {
                 root: 'assets/js',
-                vendors: '<%= opts.js.dir %>/vendors',
+                vendors: '<%= opts.js.root %>/vendors',
                 mainFile: '<%= opts.js.root %>/main.js',
                 minFile: '<%= opts.js.root %>/min.js'
             },
@@ -26,6 +26,15 @@ module.exports = function (grunt) {
             },
             bower: {
                 root: 'bower_components',
+                html5shiv: {
+                    js: '<%= opts.bower.root %>/html5shiv/dist/html5shiv.min.js'
+                },
+                respond: {
+                    js: '<%= opts.bower.root %>/respond/dest/respond.min.js'
+                },
+                jquery: {
+                    js: '<%= opts.bower.root %>/jquery/dist/jquery.min.js'
+                },
                 bootstrap: {
                     js: '<%= opts.bower.root %>/bootstrap/dist/js/bootstrap.min.js',
                     font: '<%= opts.bower.root %>/bootstrap/fonts/*.*'
@@ -72,6 +81,24 @@ module.exports = function (grunt) {
         copy: {
             all: {
                 files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        dest: '<%= opts.js.vendors %>',
+                        src: ['<%= opts.bower.html5shiv.js %>']
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        dest: '<%= opts.js.vendors %>',
+                        src: ['<%= opts.bower.respond.js %>']
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        dest: '<%= opts.js.vendors %>',
+                        src: ['<%= opts.bower.jquery.js %>']
+                    },
                     {
                         expand: true,
                         flatten: true,
