@@ -1,0 +1,11 @@
+{
+    "name": "michael-espeche/front-init",
+    "description": "Light boilerplate for front-end projects",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Michaël Espeche",
+            "email": "michael.espeche@gmail.com"
+        }
+    ]
+}
