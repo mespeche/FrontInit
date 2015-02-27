@@ -130,6 +130,14 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             },
+            cssmin: {
+                files: ['<%= opts.css.mainFile %>'],
+                tasks: ['cssmin'],
+                options: {
+                    spawn: false,
+                    livereload: true
+                }
+            },
             js: {
                 files: ['<%= opts.js.root %>/*.js', '!<%= opts.js.minFile %>'],
                 tasks: ['jshint', 'uglify'],
