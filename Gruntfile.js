@@ -78,6 +78,14 @@ module.exports = function (grunt) {
                 }
             }
         },
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', 'ie 8', 'ie 9']
+            },
+            all: {
+                src: '<%= opts.css.minFile %>'
+            },
+        },  
         copy: {
             all: {
                 files: [
@@ -132,7 +140,7 @@ module.exports = function (grunt) {
             },
             cssmin: {
                 files: ['<%= opts.css.mainFile %>'],
-                tasks: ['cssmin'],
+                tasks: ['cssmin','autoprefixer'],
                 options: {
                     spawn: false,
                     livereload: true
@@ -149,6 +157,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['copy', 'jshint', 'uglify', 'less', 'cssmin']);
+    grunt.registerTask('default', ['copy', 'jshint', 'uglify', 'less', 'cssmin', 'autoprefixer']);
 
 }
